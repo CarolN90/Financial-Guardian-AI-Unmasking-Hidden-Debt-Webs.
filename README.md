@@ -8,7 +8,7 @@
 
 - Caroline Wachira.
 - Godwine Wasonga.
-- Nomi Ngigi.
+- Naomi Ngigi.
 - Elvis Kiprono.
 - Janine Makorra
 - Trevor Maina.
