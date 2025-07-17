@@ -40,53 +40,32 @@ This project aims to use behavioral borrower data to:
 
 ---
 
-##  Dataset Overview
+## 📄 Dataset Feature Description
 
-We used a synthetic dataset simulating mobile lending behavior in Kenya. Key features include:
-
-`user_id`: Unique identifier for each individual borrower.
-
-`age`: The age of the borrower.
-
-`income`: The borrower's declared income.
-
-`employment_status`: The current employment status of the borrower
-
-`education_level`: The highest level of education attained by the borrower.
-
-`region`: The geographical region where the borrower resides.
-
-`number_of_active_loans`: The count of loans currently active for the borrower across all platforms.
-
-`apps_installed`: The number of mobile lending applications installed on the borrower's device.
-
-`loan_frequency_last_30_days`: How often the borrower has taken out loans in the past 30 days.
-
-`repayment_ratio_overall`: The ratio of successfully repaid loan amounts to total loan amounts.
-
-`credit_limit_utilization`: The percentage of the borrower's total available credit limit that is currently in use.
-
-`device_or_ID_shared`: Indicates if the borrower's device or ID has been associated with multiple loan applications, potentially suggesting shared accounts or identity fraud.
-
-`loan_amount`: The principal amount of the loan disbursed to the borrower.
-
-`interest_rate`: The interest rate applied to the specific loan.
-
-`loan_grade`: A categorical rating indicating the credit risk associated with the loan.
-
-`loan_term_days`: The duration of the loan in days.
-
-`debt_to_income_ratio`: The ratio of the borrower's total monthly debt payments to their gross monthly income.
-
-`delinquencies_last_2yrs`: The number of times the borrower has been late on payments in the last two years.
-
-`public_records`: The number of derogatory public records associated with the borrower (e.g., bankruptcies, judgments).
-
-`revolving_utilization`: The amount of credit a borrower is using compared to the total credit available on revolving accounts (e.g., credit cards).
-
-`total_credit_lines`: The total number of credit accounts (lines of credit) a borrower has open.
-
-`is_default`: A binary flag indicating whether the loan eventually defaulted (target variable: 1 for default, 0 for no default).
+| Feature                     | Description                                                                                   |
+|----------------------------|-----------------------------------------------------------------------------------------------|
+| `user_id`                  | Unique identifier for each individual borrower.                                               |
+| `age`                      | The age of the borrower.                                                                      |
+| `income`                   | The borrower's declared income.                                                               |
+| `employment_status`        | The current employment status of the borrower.                                                |
+| `education_level`          | The highest level of education attained by the borrower.                                      |
+| `region`                   | The geographical region where the borrower resides.                                           |
+| `number_of_active_loans`   | Count of loans currently active for the borrower across all platforms.                        |
+| `apps_installed`           | Number of mobile lending applications installed on the borrower's device.                    |
+| `loan_frequency_last_30_days` | How often the borrower has taken out loans in the past 30 days.                           |
+| `repayment_ratio_overall`  | Ratio of successfully repaid loan amounts to total loan amounts.                             |
+| `credit_limit_utilization` | Percentage of the borrower's total available credit limit that is currently in use.          |
+| `device_or_ID_shared`      | Indicates if the borrower's device or ID has been associated with multiple loan applications. |
+| `loan_amount`              | The principal amount of the loan disbursed to the borrower.                                   |
+| `interest_rate`            | The interest rate applied to the specific loan.                                               |
+| `loan_grade`               | A categorical rating indicating the credit risk associated with the loan.                    |
+| `loan_term_days`           | The duration of the loan in days.                                                             |
+| `debt_to_income_ratio`     | Ratio of the borrower's total monthly debt payments to gross monthly income.                 |
+| `delinquencies_last_2yrs`  | Number of times the borrower has been late on payments in the last two years.                |
+| `public_records`           | Number of derogatory public records (e.g., bankruptcies, judgments).                         |
+| `revolving_utilization`    | Credit usage compared to the total credit available on revolving accounts.                   |
+| `total_credit_lines`       | Total number of credit accounts the borrower has open.                                        |
+| `is_default`               | Binary flag indicating if the loan defaulted (`1` for default, `0` for no default).           |
 
 
 
@@ -253,7 +232,7 @@ To advance the loan stacking detection system from concept to impactful deployme
 
 
 
-## A minimal, end-to-end **Streamlit** dashboard that wraps the AI-driven **Loan-Stacking Detection** model trained in the Jupyter notebook.
+## Streamlit App.
 
 ---
 
