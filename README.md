@@ -44,15 +44,51 @@ This project aims to use behavioral borrower data to:
 
 We used a synthetic dataset simulating mobile lending behavior in Kenya. Key features include:
 
-- `loan_amount`
-- `repayment_ratio`
-- `apps_installed`
-- `loans_last_30_days`
-- `employment_status`
-- `location_type`
-- `default_risk` (target)
+`user_id`: Unique identifier for each individual borrower.
 
-The dataset was preprocessed to clean, scale, and encode the features, reducing dimensionality from 20 to 15 features after transformation.
+`age`: The age of the borrower.
+
+`income`: The borrower's declared income.
+
+`employment_status`: The current employment status of the borrower
+
+`education_level`: The highest level of education attained by the borrower.
+
+`region`: The geographical region where the borrower resides.
+
+`number_of_active_loans`: The count of loans currently active for the borrower across all platforms.
+
+`apps_installed`: The number of mobile lending applications installed on the borrower's device.
+
+`loan_frequency_last_30_days`: How often the borrower has taken out loans in the past 30 days.
+
+`repayment_ratio_overall`: The ratio of successfully repaid loan amounts to total loan amounts.
+
+`credit_limit_utilization`: The percentage of the borrower's total available credit limit that is currently in use.
+
+`device_or_ID_shared`: Indicates if the borrower's device or ID has been associated with multiple loan applications, potentially suggesting shared accounts or identity fraud.
+
+`loan_amount`: The principal amount of the loan disbursed to the borrower.
+
+`interest_rate`: The interest rate applied to the specific loan.
+
+`loan_grade`: A categorical rating indicating the credit risk associated with the loan.
+
+`loan_term_days`: The duration of the loan in days.
+
+`debt_to_income_ratio`: The ratio of the borrower's total monthly debt payments to their gross monthly income.
+
+`delinquencies_last_2yrs`: The number of times the borrower has been late on payments in the last two years.
+
+`public_records`: The number of derogatory public records associated with the borrower (e.g., bankruptcies, judgments).
+
+`revolving_utilization`: The amount of credit a borrower is using compared to the total credit available on revolving accounts (e.g., credit cards).
+
+`total_credit_lines`: The total number of credit accounts (lines of credit) a borrower has open.
+
+`is_default`: A binary flag indicating whether the loan eventually defaulted (target variable: 1 for default, 0 for no default).
+
+
 
 ---
 
@@ -97,28 +133,63 @@ Number of active loans is a powerful predictor of default risk.
 
 **Model Comparison Interpretation**
 
-1.Random Forest and XGBoost:
-Mean Accuracy: 94%
-Standard Deviation: 0.00
+1.Random Forest
+
+Mean Accuracy: 98.15%
+Standard Deviation: 0.15%
 The models achieved perfect classification across all 5 folds.
 
-2.Neural Net (MLP)
-Mean Accuracy: ~92%
-Standard Deviation: ~0.46%
+2.XGBoost:
 
-3.SVM & Logistic Regression
-Mean accuracy :92%
+Mean Accuracy: 99.62%
+Standard Deviation: 0.07%
+
+3.Neural Net (MLP)
+
+Mean Accuracy: 96.75%
+Standard Deviation: 0.25%
+
+4.Logistic Regression
+
+Mean Accuracy: 95.10%
+Standard Deviation: 0.57%
+
+5.SVM
+
+Mean Accuracy: 96.39%
+Standard Deviation: 0.26%
+
+Best performer: XGBoost
+
+Near-perfect classification on both classes.
+
+Excellent balance of precision and recall.
+
+Random Forest also performs very well, just slightly behind XGBoost.
+
+Logistic Regression is decent, but with lower precision and recall for class 1 (likely the minority or more critical class in fraud/loan-stacking detection).
+
+SVM and MLP perform similarly, with very good results but not quite at XGBoost level.
 
 -**Confusion Matrix**
 
-!<Figure size 432x288 with 1 Axes><img width="380" height="278" alt="image" src="https://github.com/user-attachments/assets/ee6de049-8581-49ab-b6ea-6cb1e9ec3b47" />
+!<Figure size 432x288 with 1 Axes><img width="380" height="278" alt="image" src="https://github.com/user-attachments/assets/5f3c19d8-802f-413b-8e8a-e6d0456ff53d" />
+
 
 **Confusion Matrix Findings**
 
-True Negatives (TN)= 1410 → Correctly identified non-loan stackers
-False Positives (FP)=48 → Incorrectly flagged 48 safe borrowers as risky
-False Negatives (FN)= 78 →   Missed 78 actual loan stackers
-True Positives (TP)= 464 → Correctly identified 464 loan stackers
+True Negatives= 1425
+Correctly identified non-loan stackers
+
+True Positives= 500
+Correctly identified 497 loan stackers
+
+
+False Positives= 42
+Incorrectly flagged 45 safe borrowers as risky
+
+False Negatives= 33
+Missed 32 actual loan stackers
 
 
 ---
